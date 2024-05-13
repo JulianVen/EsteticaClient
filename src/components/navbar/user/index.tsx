@@ -9,11 +9,11 @@ export default function UserNavbar() {
     const menuItems = [
         {
             title: "Mis citas",
-            href: "/myAppointments"
+            href: "/home"
         },
         {
             title: "Agendar cita",
-            href: "/appointment"
+            href: "/home/schedule"
         }
     ];
 
@@ -36,12 +36,12 @@ export default function UserNavbar() {
                     <p className="font-bold text-inherit">Estética</p>
                 </NavbarBrand>
                 <NavbarItem>
-                    <Link color="secondary" href="#">
+                    <Link color="foreground" href="/home">
                         Mis citas
                     </Link>
                 </NavbarItem>
                 <NavbarItem>
-                    <Link color="secondary" href="#">
+                    <Link color="foreground" href="/home/schedule">
                         Agendar cita
                     </Link>
                 </NavbarItem>

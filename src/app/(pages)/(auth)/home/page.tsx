@@ -1,9 +1,19 @@
-'use client'
-import { useSession } from "next-auth/react";
+import { auth } from "@/auth";
+import AdminServicePage from "@/components/Pages/adminServicesPage";
+import ClientAppointmentPage from "@/components/Pages/clientAppointmentPage";
 
-export default function HomePage(){
-    const { data: session, status } = useSession();
-    console.log(session);
-    
-    return("Home");
+export default async function HomePage() {
+    const session = await auth();
+
+    return (
+        <>
+            {
+                session?.user.role === "admin" ? (
+                    <AdminServicePage />
+                ) : (
+                    <ClientAppointmentPage />
+                )
+            }
+        </>
+    );
 }

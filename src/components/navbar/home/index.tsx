@@ -1,10 +1,9 @@
 'use client'
 
-import React from "react";
-import { signIn, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
+import { Button, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
 import { HiScissors } from "react-icons/hi2";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
 
 export default function HomeNavbar() {
     const { data: session, status } = useSession();
@@ -12,26 +11,28 @@ export default function HomeNavbar() {
     return (
         <Navbar shouldHideOnScroll>
             <NavbarBrand>
-                <HiScissors className="mr-2" />
-                <p className="font-bold text-inherit">Estética</p>
+                <Link href="/" className="text-purple-700">
+                    <HiScissors className="mr-2" />
+                    <p className="font-bold text-inherit">Estética</p>
+                </Link>
             </NavbarBrand>
             {
                 !session ? (
                     <NavbarContent justify="end">
                         <NavbarItem>
-                            <Button onPress={() => { signIn() }} variant="ghost" className="border-none">
+                            <Button as={Link} href="/login" variant="ghost" className="border-none">
                                 Login
                             </Button>
                         </NavbarItem>
                         <NavbarItem>
-                            <Button as={Link} color="secondary" href="#" variant="flat">
+                            <Button as={Link} color="secondary" href="/register" variant="flat">
                                 Sign Up
                             </Button>
                         </NavbarItem>
                     </NavbarContent>
                 ) : (
                     <NavbarContent justify="end">
-                        <NavbarItem className="hidden lg:flex">
+                        <NavbarItem className="lg:flex">
                             <Button as={Link} color="secondary" href="/home" variant="flat">
                                 Ir a dashboard
                             </Button>

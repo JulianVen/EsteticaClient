@@ -6,7 +6,7 @@ export default function Page() {
     <>
       <HomeNavbar />
 
-      <div className="flex flex-col lg:flex-row mt-[150px] justify-center items-center text-center w-full">
+      <div className="flex flex-col lg:flex-row mt-[100px]  justify-center items-center text-center w-full">
         <div className="flex flex-col justify-center items-center max-w-[500px]">
           <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-indigo-700 to-red-500 mb-2 lg:p-4"> Estética Regina </h1>
           <p className="block font-bold text-2xl md:text-4xl px-5">¡Bienvenido a nuestra estética! </p>
@@ -15,7 +15,7 @@ export default function Page() {
           </p>
         </div>
 
-        <Image src="/barber.png" width={600} height={600} quality={100} alt="barber image" />
+        <Image src="/barber.png" width={500} height={500} quality={100} alt="barber image" />
       </div>
     </>
   );

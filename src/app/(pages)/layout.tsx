@@ -1,6 +1,10 @@
-import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
 import "./globals.css";
+
+
+import { Roboto } from "next/font/google";
+import type { Metadata } from "next";
+
+import { Toaster } from 'sonner'
 import Provider from "@/providers";
 
 const font = Roboto({ subsets: ["latin"], weight: ['100', '300', '500', '700'] });
@@ -19,6 +23,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={font.className}>
         <Provider>
+          <Toaster richColors position="top-right"/>
           {children}
         </Provider>
       </body>

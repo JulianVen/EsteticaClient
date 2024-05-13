@@ -1,7 +1,7 @@
-import NextAuth, { type DefaultSession } from "next-auth"
-import Credentials from "next-auth/providers/credentials"
-import type { Provider } from "next-auth/providers"
+import NextAuth, { CredentialsSignin } from "next-auth"
 import { JWT } from "next-auth/jwt"
+import type { Provider } from "next-auth/providers"
+import Credentials from "next-auth/providers/credentials"
 
 declare module "next-auth" {
     interface User {
@@ -37,26 +37,32 @@ const providers: Provider[] = [
             password: { label: "Contraseña", type: "password" }
         },
         async authorize(c) {
+
+            console.log(c);
+
             const res = await fetch(`${process.env.NEXT_PUBLIC_API}/auth/login`, {
                 headers: {
                     "Content-Type": "application/json",
                 },
                 method: "POST",
                 body: JSON.stringify(c),
-            })
+            });
 
             const data = await res.json();
-            if (res.ok && data) {
+            if (res.ok && data.code === 200) {
                 return data.response;
             }
 
-            return null;
+            throw new CredentialsSignin();
         },
     }),
 ]
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
     providers,
+    pages: {
+        "signIn": "/login"
+    },
     callbacks: {
         jwt({ token, user }) {
             if (user) {
@@ -65,7 +71,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                 token.role = user.role;
                 token.token = user.token;
             }
-            return token
+            return token;
         },
         session({ session, token }) {
             if (token) {
@@ -75,7 +81,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                 session.user.token = token.token;
             }
 
-            return session
+            return session;
         },
     },
 })
