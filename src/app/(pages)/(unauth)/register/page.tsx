@@ -46,8 +46,6 @@ export default function RegisterPage() {
 
     return (
         <>
-            <HomeNavbar />
-
             <div className="flex flex-col lg:flex-row mt-[60px] justify-center items-center w-full">
                 <div className="w-[300px] max-w-[450px]">
                     <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-indigo-700 to-red-500 lg:p-4"> ¡Hola! </h1>

@@ -1,12 +1,11 @@
-'use client'
-
-import { useSession } from "next-auth/react";
+"use client"
 
 import { Button, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
+import { useSession } from "next-auth/react";
 import { HiScissors } from "react-icons/hi2";
 
 export default function HomeNavbar() {
-    const { data: session, status } = useSession();
+    const { data: session } = useSession();
 
     return (
         <Navbar shouldHideOnScroll>

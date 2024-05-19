@@ -1,5 +1,6 @@
 import { auth } from "@/auth";
-import AdminServicePage from "@/components/Pages/adminServicesPage";
+import AdminAppointmentPage from "@/components/Pages/adminAppointmentPage";
+import AdminServicePage from "@/components/Pages/adminAppointmentPage";
 import ClientAppointmentPage from "@/components/Pages/clientAppointmentPage";
 
 export default async function HomePage() {
@@ -9,7 +10,7 @@ export default async function HomePage() {
         <>
             {
                 session?.user.role === "admin" ? (
-                    <AdminServicePage />
+                    <AdminAppointmentPage />
                 ) : (
                     <ClientAppointmentPage />
                 )

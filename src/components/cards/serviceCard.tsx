@@ -53,14 +53,19 @@ export default function ServiceCard({
 
     return (
         <>
-            <div className={`relative mx-10 shadow-md rounded-lg w-auto bg-gradient-to-r overflow-hidden min-w-[300px]`}>
+            <div className={`relative mx-10 shadow-md flex flex-col justify-between rounded-lg w-auto bg-gradient-to-r overflow-hidden min-w-[300px]`}>
                 <p className="absolute text-4xl bg-white text-black p-2 rounded-lg top-2 right-2"> $ {data.price} </p>
                 <img src={data.imageUrl} alt={`${data.id} image`} className="h-[300px] w-[300px] object-fill rounded-t-lg" />
 
-                <div className="flex flex-col max-w-[300px] p-5">
-                    <p className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-indigo-700 to-red-500"> {data.title}</p>
-                    <p className="text-lg text-black/80 leading-none"> {data.description}</p>
-                    <Button color='secondary' className='mt-10 w-full' onPress={onOpen}> Agendar </Button>
+                <div className="flex flex-col justify-between max-w-[300px] p-5 h-full">
+                    <div className="h-full flex flex-col justify-center">
+                        <p className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-indigo-700 to-red-500"> {data.title}</p>
+                        <p className="text-lg text-black/80 leading-none"> {data.description}</p>
+                    </div>
+
+                    <div className="flex gap-2">
+                        <Button color='secondary' className='mt-10 w-full' onPress={onOpen}> Agendar </Button>
+                    </div>
                 </div>
             </div>
 
@@ -100,7 +105,7 @@ export default function ServiceCard({
                                             />
                                         </div>
                                     </div>
-                                    <div className="flex justify-end mt-5">
+                                    <div className="flex gap-2 justify-end mt-5">
                                         <Button variant="light" onPress={onClose}>
                                             Cerrar
                                         </Button>

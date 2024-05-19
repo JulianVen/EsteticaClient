@@ -25,15 +25,19 @@ export default function UserNavbar() {
 
             <NavbarContent className="sm:hidden pr-3" justify="center">
                 <NavbarBrand>
-                    <HiScissors className="mr-2" />
-                    <p className="font-bold text-inherit">Estética</p>
+                    <Link href="/" className="text-purple-700">
+                        <HiScissors className="mr-2" />
+                        <p className="font-bold text-inherit">Estética</p>
+                    </Link>
                 </NavbarBrand>
             </NavbarContent>
 
             <NavbarContent className="hidden sm:flex gap-4" justify="end">
                 <NavbarBrand>
-                    <HiScissors className="mr-2" />
-                    <p className="font-bold text-inherit">Estética</p>
+                    <Link href="/" className="text-purple-700">
+                        <HiScissors className="mr-2" />
+                        <p className="font-bold text-inherit">Estética</p>
+                    </Link>
                 </NavbarBrand>
                 <NavbarItem>
                     <Link color="foreground" href="/home">

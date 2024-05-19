@@ -21,9 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <link rel="icon" type="image/png" href="/tijeras.png" />
+      </head>
       <body className={font.className}>
         <Provider>
-          <Toaster richColors position="top-right"/>
+          <Toaster richColors position="top-right" />
           {children}
         </Provider>
       </body>
